@@ -1,21 +1,21 @@
-package entities;
+package models;
+
 
 import java.util.Objects;
 
-public class Zoo {
+public class Animal {
     private int id;
     private String name;
-    private String location;
+    private String species;
 
-    public Zoo(int id) {
+    public Animal(int id) {
         this.id = id;
     }
-
-    public Zoo(String name) {
+    public Animal(String name) {
         this.name = name;
     }
 
-    public Zoo() {
+    public Animal(String name, String species, int age) {
     }
 
     public int getId() {
@@ -34,32 +34,32 @@ public class Zoo {
         this.name = name;
     }
 
-    public String getLocation() {
-        return location;
+    public String getSpecies() {
+        return species;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setSpecies(String species) {
+        this.species = species;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Zoo zoo = (Zoo) o;
-        return id == zoo.id && Objects.equals(name, zoo.name) && Objects.equals(location, zoo.location);
+        Animal animal = (Animal) o;
+        return id == animal.id && Objects.equals(name, animal.name) && Objects.equals(species, animal.species);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, location);
+        return Objects.hash(id, name, species);
     }
 
     @Override
     public String toString() {
-        return "Zoo{" +
+        return "Animal{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", location='" + location + '\'' +
+                ", species='" + species + '\'' +
                 '}';
     }
 }

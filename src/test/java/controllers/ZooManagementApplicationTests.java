@@ -1,4 +1,4 @@
-package wha.example.Zoo_Management;
+package controllers;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

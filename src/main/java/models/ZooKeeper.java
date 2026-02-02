@@ -1,21 +1,21 @@
-package entities;
-
+package models;
 
 import java.util.Objects;
 
-public class Animal {
+public class ZooKeeper {
     private int id;
     private String name;
-    private String species;
+    private String specialization;
 
-    public Animal(int id) {
+    public ZooKeeper(int id) {
         this.id = id;
     }
-    public Animal(String name) {
+
+    public ZooKeeper(String name) {
         this.name = name;
     }
 
-    public Animal() {
+    public ZooKeeper() {
     }
 
     public int getId() {
@@ -34,32 +34,32 @@ public class Animal {
         this.name = name;
     }
 
-    public String getSpecies() {
-        return species;
+    public String getSpecialization() {
+        return specialization;
     }
 
-    public void setSpecies(String species) {
-        this.species = species;
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Animal animal = (Animal) o;
-        return id == animal.id && Objects.equals(name, animal.name) && Objects.equals(species, animal.species);
+        ZooKeeper that = (ZooKeeper) o;
+        return id == that.id && Objects.equals(name, that.name) && Objects.equals(specialization, that.specialization);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, species);
+        return Objects.hash(id, name, specialization);
     }
 
     @Override
     public String toString() {
-        return "Animal{" +
+        return "ZooKeeper{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", species='" + species + '\'' +
+                ", specialization='" + specialization + '\'' +
                 '}';
     }
 }

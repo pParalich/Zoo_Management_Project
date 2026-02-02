@@ -1,21 +1,21 @@
-package entities;
+package models;
 
 import java.util.Objects;
 
-public class ZooKeeper {
+public class Zoo {
     private int id;
     private String name;
-    private String specialization;
+    private String location;
 
-    public ZooKeeper(int id) {
+    public Zoo(int id) {
         this.id = id;
     }
 
-    public ZooKeeper(String name) {
+    public Zoo(String name) {
         this.name = name;
     }
 
-    public ZooKeeper() {
+    public Zoo() {
     }
 
     public int getId() {
@@ -34,32 +34,32 @@ public class ZooKeeper {
         this.name = name;
     }
 
-    public String getSpecialization() {
-        return specialization;
+    public String getLocation() {
+        return location;
     }
 
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        ZooKeeper that = (ZooKeeper) o;
-        return id == that.id && Objects.equals(name, that.name) && Objects.equals(specialization, that.specialization);
+        Zoo zoo = (Zoo) o;
+        return id == zoo.id && Objects.equals(name, zoo.name) && Objects.equals(location, zoo.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, specialization);
+        return Objects.hash(id, name, location);
     }
 
     @Override
     public String toString() {
-        return "ZooKeeper{" +
+        return "Zoo{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", specialization='" + specialization + '\'' +
+                ", location='" + location + '\'' +
                 '}';
     }
 }
