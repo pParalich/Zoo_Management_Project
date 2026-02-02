@@ -2,40 +2,42 @@ package controllers;
 
 import Service.ZooService;
 import models.Animal;
-import models.ZooKeeper;
+import models.Zoo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
-@RequestMapping("/zoo")
+@RequestMapping("/zoos")
 public class ZooController {
 
     @Autowired
     private ZooService zooService;
 
-    // Получить всех животных в зоопарке
-    @GetMapping("/animals")
-    public List<Animal> getAllAnimals() {
-        return zooService.getAllAnimals();
+    @GetMapping
+    public List<Zoo> getAllZoos() {
+        return zooService.getAllZoos();
     }
 
-    // Добавить животное в зоопарк
-    @PostMapping("/animals")
-    public Animal addAnimal(@RequestBody Animal animal) {
-        return zooService.addAnimal(animal);
+    @GetMapping("/{id}")
+    public Zoo getZooById(@PathVariable int id) {
+        return zooService.getZooById(id);
     }
 
-    // Получить всех смотрителей
-    @GetMapping("/keepers")
-    public List<ZooKeeper> getAllKeepers() {
-        return zooService.getAllKeepers();
+    @PostMapping
+    public Zoo createZoo(@RequestBody Zoo zoo) {
+        return zooService.createZoo(zoo);
     }
 
-    // Назначить конкретного смотрителя конкретному животному
-    @PostMapping("/assign/{animalId}/{keeperId}")
-    public String assign(@PathVariable int animalId, @PathVariable int keeperId) {
-        zooService.assignKeeperToAnimal(animalId, keeperId);
-        return "Success: Keeper " + keeperId + " now looks after animal " + animalId;
+    @PutMapping("/{id}")
+    public Zoo updateZoo(@PathVariable int id, @RequestBody Zoo zoo) {
+        return zooService.updateZoo(id, zoo);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteZoo(@PathVariable int id) {
+        zooService.deleteZoo(id);
+    }
+
 }

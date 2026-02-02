@@ -7,6 +7,10 @@ public class ZooKeeper {
     private String name;
     private String specialization;
 
+    public ZooKeeper(String name, String specialization) {
+        this.name = name;
+        this.specialization = specialization;
+    }
     public ZooKeeper(int id) {
         this.id = id;
     }

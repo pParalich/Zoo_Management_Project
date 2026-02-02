@@ -7,46 +7,30 @@ public class Zoo {
     private String name;
     private String location;
 
-    public Zoo(int id) {
-        this.id = id;
-    }
+    public Zoo() {}
 
-    public Zoo(String name) {
+    public Zoo(String name, String location) {
         this.name = name;
-    }
-
-    public Zoo() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
         this.location = location;
     }
 
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getLocation() { return location; }
+    public void setLocation(String location) { this.location = location; }
+
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Zoo zoo = (Zoo) o;
-        return id == zoo.id && Objects.equals(name, zoo.name) && Objects.equals(location, zoo.location);
+        return id == zoo.id &&
+                Objects.equals(name, zoo.name) &&
+                Objects.equals(location, zoo.location);
     }
 
     @Override

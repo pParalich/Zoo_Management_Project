@@ -23,4 +23,15 @@ class ZooKeeperController {
     public ZooKeeper createKeeper(@RequestBody ZooKeeper keeper) {
         return keeperService.saveKeeper(keeper);
     }
+
+    @PutMapping("/{id}")
+    public ZooKeeper updateKeeper(@PathVariable int id, @RequestBody ZooKeeper keeper) {
+        return keeperService.updateKeeper(id, keeper);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteKeeper(@PathVariable int id) {
+        keeperService.deleteKeeper(id);
+    }
+
 }
