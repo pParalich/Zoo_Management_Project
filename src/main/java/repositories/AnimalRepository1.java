@@ -69,7 +69,7 @@ public class AnimalRepository1 {
 
             st.executeUpdate();
 
-            // вернуть сгенерированный id
+
             try (ResultSet keys = st.getGeneratedKeys()) {
                 if (keys.next()) {
                     animal.setId(keys.getInt(1));
@@ -153,7 +153,7 @@ public class AnimalRepository1 {
     }
 
     private Animal mapRow(ResultSet rs) throws SQLException {
-        Animal a = new Animal(); // нужен пустой конструктор в Animal!
+        Animal a = new Animal();
 
         a.setId(rs.getInt("id"));
         a.setName(rs.getString("name"));

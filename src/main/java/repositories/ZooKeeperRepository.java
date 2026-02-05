@@ -41,7 +41,6 @@ public class ZooKeeperRepository {
             st.setString(2, keeper.getSpecialization());
             st.executeUpdate();
 
-            // Получаем сгенерированный ID
             try (ResultSet generatedKeys = st.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     keeper.setId(generatedKeys.getInt(1));
